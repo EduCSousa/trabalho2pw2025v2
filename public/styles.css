@@ -1,0 +1,10 @@
+body {
+  font-family: sans-serif;
+  padding: 2em;
+  max-width: 600px;
+  margin: auto;
+}
+form input {
+  display: block;
+  margin: 10px 0;
+}

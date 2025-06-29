@@ -1,0 +1,22 @@
+<% layout('layout') %>
+<h2>Bem-vindo, <%= user.username %></h2>
+
+<form action="/api/search" method="POST">
+  <input name="term" placeholder="Pesquisar termo..." required />
+  <button>Pesquisar</button>
+</form>
+
+<% if (results) { %>
+  <h3>Resultados:</h3>
+  <p><strong>Temperatura:</strong> <%= results.weather.main.temp %> °C</p>
+  <p><strong>Resumo:</strong> <%= results.wikipedia.extract %></p>
+<% } %>
+
+<h3>Histórico</h3>
+<ul>
+  <% history.forEach(s => { %>
+    <li><%= s.term %> - <%= s.timestamp.toLocaleString() %></li>
+  <% }) %>
+</ul>
+
+<a href="/logout">Sair</a>
